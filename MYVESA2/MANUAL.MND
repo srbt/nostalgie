@@ -1,0 +1,179 @@
+~S~yst‚m
+ ~N~ povˆda     ,F1
+ ~O~deslat ©etˆzec,Ctrl-F1
+ ~R~eset DID    ,$1001
+ ~I~nfo         ,Ctrl-F2
+ ~P~©ep¡n n¡ oken
+  ~N~ sleduj¡c¡ ,PgDn
+  ~P~©edchoz¡   ,PgUp
+ ~A~ktualizovat
+  ~K~lapky       ,$8101
+  ~P~©ekryt      ,$8201
+  P~o~dvozek     ,$8301
+  Ventily ~1~    ,$8401
+  Ventily ~2~    ,$8501
+  V~s~tupy 1     ,$8601
+  R~p~k          ,$8701
+  ~V~SG          ,$9001
+  O~k~na
+   ~1~. okno       ,F2
+   ~2~. okno       ,F3
+   ~3~. okno       ,F4
+   ~4~. okno       ,F5
+   ~5~. okno       ,F6
+   ~6~. okno       ,F7
+   ~7~. okno       ,F8
+   ~8~. okno       ,F9
+   ~V~¨echna       ,Space
+ ----------------
+ ~K~onec        ,Alt-X
+P©~e~kryt
+ ~O~tev©en¡     ,$0501
+ ~U~zav©en¡     ,$0601
+ ~C~yklus       ,$0D01
+ ----------------
+ ~R~eset        ,$0701
+ A~k~tualizace  ,$8201
+~K~lapky
+ ~L~et       0ø ,$0101
+ ~V~zlet    25ø ,$0201
+ ~P~©ist n¡ 55ø ,$0301
+ ----------------
+ ~R~eset        ,$0401
+ A~k~tualizace  ,$8101
+P~o~dvozek
+ ~V~ysunut¡     ,$0801
+ ~Z~asunut¡     ,$0901
+ ----------------
+ ~R~eset        ,$0A01
+ A~k~tualizace  ,$8301
+~V~entily
+ ~N~ouzov‚ ‡erpadlo
+  ~P~©ipojen¡
+   ~S~epnout    ,$3001
+   ~R~ozepnout  ,$3101
+  ~O~dpojen¡ 
+   ~S~epnout    ,$3201
+   ~R~ozepnout  ,$3301
+ ~P~osilova‡e
+  ~1~. okruh
+   ~P~©ipojen¡
+    ~S~epnout   ,$3401
+    ~R~ozepnout ,$3501
+   ~O~dpojen¡
+    ~S~epnout   ,$3601
+    ~R~ozepnout ,$3701
+  ~2~. okruh
+   ~P~©ipojen¡
+    ~S~epnout   ,$3801
+    ~R~ozepnout ,$3901
+   ~O~dpojen¡
+    ~S~epnout   ,$3A01
+    ~R~ozepnout ,$3B01
+ ---------------
+ ~R~eset        ,$0B01
+ A~k~tualizace  ,$8401
+ ===============
+ R~e~zerva
+  ~S~epnout     ,$3C01
+  ~R~ozepnout   ,$3D01
+ ~N~+P Brzdˆn¡
+  ~O~dbrzdˆn¡
+   ~S~epnout    ,$3E01
+   ~R~ozepnout  ,$3F01
+  ~Z~abrzdˆn¡
+   ~S~epnout    ,$4001
+   ~R~ozepnout  ,$4101
+ ~O~mezova‡ v˜chylek
+  ~S~epnout     ,$4201
+  ~R~ozepnout   ,$4301
+ ~A~erodynamick‚ brzdy
+  ~S~epnout     ,$4401
+  ~R~ozepnout   ,$4501
+ ~L~apa‡ klimatizace
+  ~S~epnout     ,$4601
+  ~R~ozepnout   ,$4701
+ ---------------
+ Re~s~et        ,$0C01
+ A~k~tualizace  ,$8501
+Vs~t~upy
+ Re~s~et        ,$0E01
+ A~k~tualizace  ,$8601
+ž~p~k
+ ~P~oloha pedalu,$5001
+ ~V~elk‚ v˜chylky
+  ~Z~apnout     ,$5101
+  ~V~ypnout     ,$5201
+ ~Z~at¡‘en¡ p©¡dˆ
+  ~Z~apnout     ,$5301
+  ~V~ypnout     ,$5401
+ ~C~yklus       ,$5501
+ P~a~rametry
+  ~M~eze        ,$5601
+  ~P~olohy      ,$5701
+  ~K~ontroly    ,$5801
+ ---------------
+ Re~s~et        ,$0F01
+ A~k~tualizace  ,$8701
+ ===============
+ Plo¨ina na~h~oru,$5A01
+ Plo¨ina ~d~olu ,$5901
+ Ak~t~ualizace  ,$8901
+K~n~ipl
+ ~K~©id‚lko
+  K©id‚lko  ~1~0%,$A101
+  K©id‚lko  ~5~0%,$A201
+  K©id‚lko 1~0~0%,$A301
+  K©id‚lko ~u~‘iv.,$A701
+ ~V~˜¨kovka
+  V˜¨kovka  ~1~0%,$A401
+  V˜¨kovka  ~5~0%,$A501
+  V˜¨kovka 1~0~0%,$A601
+  V˜¨kovka ~u~‘iv.,$A801
+ --------------
+ GA ~Z~apnout     ,$A901
+ ~G~A Vypnout     ,$AA01
+ ~S~ynchro Zapnout,$AC01
+ S~y~nchro Vypnout,$AB01
+ --------------
+ ~R~eset       ,$AD01
+VS~G~
+ ~S~tart        ,$6101
+ S~t~op         ,$6201
+ ~F~rekvence    ,$6301
+ ~N~ bˆh        ,$6401
+ ~D~obˆh        ,$6501
+ Ovl d n¡ z ~V~SG,$6601
+ Ovl d n¡ z ~P~C,$6701
+ --------------
+ A~k~tualizace  ,$9001
+~M~esit
+ Agreg t ~m~az n¡
+  ~Z~apnout     ,$7101
+  ~V~ypnout     ,$7201
+ Agreg t ~P~A4
+  ~Z~apnout     ,$7301
+  ~V~ypnout     ,$7401
+ ~K~ompresor
+  ~Z~apnout     ,$7501
+  ~V~ypnout     ,$7601
+ ~O~chrany
+  ~Z~apnout     ,$7701
+  ~V~ypnout     ,$7801
+ ~R~el‚
+  ~Z~apnout     ,$7901
+  ~V~ypnout     ,$7A01
+ ~N~ouzov˜ pohon
+  ~Z~apnout     ,$7B01
+  ~V~ypnout     ,$7C01
+  ’ ~d~an‚ ot ‡ky,$7D01
+  ---------------
+  A~k~tualizace  ,$8801
+ ---------------
+ A~k~tualizace  ,$8801
+A~u~tomat
+ ~L~et do zony  ,$8102
+ ~H~lavni modul ,$8202
+ T~e~st         ,$8302
+ ~S~tart        ,Ctrl-F9
+ S~t~op         ,^C
