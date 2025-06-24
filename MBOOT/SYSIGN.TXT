@@ -1,0 +1,21 @@
+$00 Unused
+$01 DOS-12
+$02 Xenix
+$03 Xenix
+$04 DOS-16
+$05 Extended
+$06 BIGDOS
+$07 HPFS
+$08 split
+$0B FAT 32
+$50 D Manager
+$51 D Manager
+$56 GB
+$61 Speed
+$63 386/ix
+$64 Novell
+$75 PCIX
+$DB CP/M
+$E1 Speed
+$E3 Speed
+$E4 Speed

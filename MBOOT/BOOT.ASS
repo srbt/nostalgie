@@ -1,0 +1,186 @@
+; Zdrojovy text zavadeciho kodu pro Master Boot record
+; fy ARNAY Software
+; Doplnil Netopejr
+
+	MODEL TINY
+	CODESEG
+	ORG 0h
+.286
+PTable          EQU 1BEh         ; adresa partition table
+PSize           EQU 10h          ; delka zaznamu partition
+Y               EQU 10h          ; horni okraj okna
+Delay           EQU  9           ; doba cekani [s]
+; Count           EQU  3           ; pocet zaznamu partition
+kbF1            EQU 3Bh          ; scan code F1
+
+Start:		
+                XOR AX,AX
+                CLI
+                MOV SS,AX
+                MOV AX,7900
+                MOV SP,AX
+                STI
+                CLD
+                MOV AX,07C0h
+                MOV DS,AX
+                MOV AX,07A0h
+                MOV ES,AX
+                XOR SI,SI
+                XOR DI,DI
+                MOV CX,256
+                REP MOVSW
+                DB 0EAh
+                DW OFFSET ZaKopii,07A0h
+Zakopii:        MOV DS,AX
+                MOV AX,0600h
+                MOV BH,70h
+                MOV CX,Y*256
+                MOV DL,Sirka
+                MOV DH,Count
+                ADD DH,Y+2
+                PUSHA
+                INT 10h
+                POPA
+                DEC DH
+                MOV BH,1Ah
+                INT 10h
+                MOV DX,(Y+1)*256+02h
+                XOR BH,BH
+                MOV AH,02
+                INT 10h
+                MOV SI,OFFSET Msg
+                CALL Print
+                MOV SI,PTable
+                MOV BX,001Fh
+                XOR CH,CH
+                MOV CL,Count
+                MOV DX,Y*256+01h
+SActive:        LODSB
+                ADD SI,0Fh
+                INC DH
+                OR AL,AL
+                LOOPZ SActive
+                PUSHA
+                MOV AH,2
+                INT 10h
+                POPA
+                SUB SI,10h
+                PUSH SI
+                MOV AH,09h
+                MOV CX,1
+
+;-----------------------------------------------------------
+; Nasledujici radek jsme doplnili my - aby se v menu objevil
+; znak sipka misto paznaku #80
+;			Netopejr
+;-----------------------------------------------------------
+		SUB AL,70h
+
+
+                INT 10h
+                MOV AH,2
+                MOV DL,03h
+                MOV DH,Count
+                ADD DH,Y+2
+                INT 10h
+                MOV Counter,Delay+1
+                PUSH BX
+KeyPressed:
+                MOV AH,1
+                INT 16h
+                JNZ Pressed
+          ;      XOR AL,AL
+          ;      OUT 70h,AL
+          ;      JMP $+2
+          ;      IN AL,71h
+
+;------------------------------------------------------------------------
+; To jsme doplnili my - namisto primeho pristupu k portum jsme pouzili
+; sluzbu 02h biosu, ktera vraci sekundy v DH - protoze jinak to nechodi
+; na pocitacich nekompatibilnich s Motorolou MC 146818 (coz je nas pripad)
+;				Netopejr
+
+
+		MOV AH, 02h
+		INT 1Ah
+		MOV AL, DH
+
+;------------------------------------------------------------------------
+
+                CMP AL,0FFh
+                JZ KeyPressed
+                POP BX
+                CMP BL,AL
+		PUSHF
+                MOV BL,AL
+		POPF
+                PUSH BX
+                JZ KeyPressed
+                MOV AH,0Eh
+                MOV AL,Counter
+                DEC AL
+                OR AL,30h
+                INT 10h
+                MOV AL,8
+                INT 10h
+                DEC Counter
+                JNZ KeyPressed
+                POP BX
+Autostart:      MOV SI,OFFSET Msg2
+                CALL Print
+                POP SI
+                MOV AX,07C0h
+                MOV ES,AX
+                MOV AX,0201h
+                XOR BX,BX
+                MOV CX,[SI+2]
+                MOV DL,80h
+                MOV DH,[SI+1]
+                INT 13h
+                MOV SI,PTable
+                DB 0EAh
+                DW 7C00h,0
+Pressed:        POP BX
+                XOR AX,AX
+                INT 16h
+                SUB AH,kbF1
+                CMP AH,Count
+                JNB Autostart
+                OR AL,AL
+                JNZ Autostart
+                POP SI
+                PUSH SI
+                MOV byte ptr [SI],0
+                SHL AH,4
+                XCHG AH,AL
+                ADD AX,PTable
+                MOV SI,AX
+                POP BX
+                PUSH SI
+                MOV byte ptr [SI],80h
+                MOV AX,0301h
+                XOR BX,BX
+                MOV CX,0001h
+                MOV DX,0080h
+                INT 13h
+                JMP Autostart
+                
+Print:          MOV AH,0Eh
+Smycka:         LODSB
+                PUSH AX
+                INT 10h
+                POP AX
+                OR AL,AL
+                JNZ Smycka
+                RET
+                
+Counter         DB 0
+Msg2            DB ' Booting ...',13,10,10,0
+Count           DB 3
+Sirka           DB 12
+Msg             DB 'F1 ... MS-Dos',13,10
+                DB '  F2 ... Windows 95',13,10
+                DB '  F3 ... Temp',13,10,10
+                DB '  >',0
+MsgPoz          DW OFFSET Count
+		END Start

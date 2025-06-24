@@ -1,5 +1,19 @@
 ## Nostalgická sbírka různých funkcí a tříd vytvořených pro Turbo Pascal 6 někdy kolem roku 2000
 
+### MBOOT - umožňuje vybrat diskovou oblast, ze které bude zaváděn systém
+
+Nabídka systémů ke startu ([zdrojový kód](MBOOT/BOOT.ASS)) (dosbox sice vypisuje že startuje z A:, ale program se pochopitelně instaloval na první pevný disk)
+![Nabídka systémů ke startu](screenshots/mboot.png)
+
+### MKFONT16 - editor fontů 8x16 bodů ([zdrojový kód](PROGRAMY/MKFONT16.PAS))
+![MKFONT16](screenshots/mkfont16.png)
+
+### MKKBD - editor národních klávesnic ([zdrojový kód](PROGRAMY/MKKBD.PAS)) pro program XCHGKBD ([zdrojový kód](PROGRAMY/XCHGKBD.PAS))
+![MKKBD](screenshots/mkkbd.png)
+
+### MKSORT - editor tabulek pro národní řazení nebo převody znakových sad ([zdrojový kód](PROGRAMY/MKSORT.PAS))
+![MKSORT SOR](screenshots/mksort_sor.png) ![MKSORT UPC](screenshots/mksort_upc.png)
+
 ### Komponenta MyVesa, která slouží k vykreslování grafiky na SVGA.
 
 Uživatelské rozhraní využívající MyVesa ([zdrojový kód](MYVESA2/DEMO.PAS))

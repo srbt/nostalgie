@@ -1,0 +1,108 @@
+Program MBOOT slou‘¡ k zobrazen¡ informac¡ o rozdˆlen¡ va¨eho disku na
+oblasti a k p©¡padn‚ instalaci zavadˆ‡e pro r–zn‚ konfigurace (resp. r–zn‚
+opera‡n¡ syst‚my) va¨eho po‡¡ta‡e.
+
+Zobrazen¡ informac¡ o rozdˆlen¡ disku
+--------------------------------------
+
+Jak je uspo© d n pevn˜ disk va¨eho po‡¡ta‡e ?
+
+Cel˜ disk je rozdˆlen na tzv. sektory. Jeden sektor obsahuje ur‡it‚ mno‘stv¡
+bajt– (1 bajt = 1 p¡smeno), zpravidla 512. Sektory se zdru‘uj¡ do cluster– -
+jeden cluster obsahuje jeden, 2, 4, 8 nebo v¡ce sektor– (mocniny dvou).
+Clustery se zdru‘uj¡ do oblast¡ - ka‘d  oblast je pak opera‡n¡m syst‚mem
+zpravidla prezentov na jako samostatn˜ logick˜ disk. Pod syst‚mem MS-DOS nebo
+Windows 95 je maxim ln¡ po‡et cluster– na oblast 65525 (FFF5h) co‘ ur‡uje,
+kolik sektor– mus¡ minim lnˆ obsahovat jeden cluster p©i ur‡it‚ velikosti
+disku. Proto‘e ka‘d˜ soubor (text, program apod.) zab¡r  minim lnˆ jeden
+cluster, m–‘e p©i velk˜ch clusterech a velk‚m mno‘stv¡ mal˜ch soubor– doj¡t k
+zna‡n˜m ztr t m diskov‚ho prostoru - tomu lze p©edch zet vytvo©en¡m v¡ce
+oblast¡.
+
+                 Tabulka velikost¡ cluster–
+ Sektor–/Cluster  Bajt–/Cluster  Maxim ln¡ velikost oblasti
+     1                 512                33,548,800 bajt–
+     2                1024                67,097,600
+     4                2048               134,195,200
+     8                4096               268,390,400
+    16                8192               536,780,800
+    32               16384             1,073,561,600
+    64               32768             2,147,123,200
+
+Prvn¡ sektor na disku nen¡ za©azen do ‘ dn‚ oblasti a obsahuje tabulku
+rozdˆlen¡ disku (Partition table), kter  vymezuje um¡stˆn¡ oblast¡.
+Platnost informac¡ v PT potvrzuje signatura (posledn¡ dva bajty sektoru)
+kter  mus¡ obsahovat hodnotu AA55 (hexadecim lnˆ).
+
+Struktura tabulky rozdˆlen¡ disku (jak ji zobrazuje MBOOT)
+
+Disk lze rozdˆlit a‘ na ‡ty©i prim rn¡ oblasti - PT m  ‡ty©i © dky.
+Zobrazen¡ obsahuje:
+  - po©adov‚ ‡¡slo oblasti,
+  - zda je dan  oblast "aktivn¡"
+  - typ (syst‚m) oblasti,
+  - velikost oblasti v bajtech (p©edpokl d  velikost sektoru 512 bajt–),
+  - n zev svazku (zad no p©i form tov n¡),
+  - signatura form tovac¡ho programu (zpravidla n zev a verze syst‚mu),
+  - n zev syst‚mu soubor–
+  - velikost clusteru v bajtech (pokud je zde hodnota vˆt¨¡, ne‘ jak 
+    odpov¡d  velikosti oblasti v tabulce velikost¡ cluster–, vyplat¡ se
+    oblast z lohovat, p©eform tovat a znovu nahr t).
+
+ Pokud jde o prvn¡ sektor prvn¡ho disku v po‡¡ta‡i, je zde tak‚ program
+zavadˆ‡e syst‚mu, kter˜ z aktivn¡ oblasti zavede opera‡n¡ syst‚m. T‚to
+skute‡nosti lze vyu‘¡t pro instalaci odli¨n˜ch opera‡n¡ch syst‚m– do
+jednotliv˜ch oblast¡ - nˆkter‚ syst‚my (OS/2, Linux) tuto mo‘nost p©¡mo
+nab¡zej¡ - p©ep¡n n¡ se pak prov d¡ zmˆnou p©¡znaku aktivity oblasti.
+
+Jednoduchou zmˆnu p©¡znaku aktivity nab¡z¡ tak‚
+
+Univers ln¡ multibootovac¡ program fy ARNAY Software
+-----------------------------------------------------
+
+ - slou‘¡ k interaktivn¡ volbˆ oblasti ze kter‚ se bude zav dˆt syst‚m.
+
+Kdy ho pou‘¡t:
+             - kdy‘ chci na sv‚m po‡¡ta‡i pou‘¡vat dva nebo v¡ce opera‡n¡ch
+               syst‚m– (nap©. Windows 95/MS-DOS apod.)
+             - pokud pou‘¡v m verzi MS-DOS v. 5.0 nebo star¨¡ a pot©ebuji
+               nouzov˜ re‘im bez Config.sys a AutoExec.bat
+
+Kdy ho nepou‘¡t:
+             - kdy‘ m m velk˜ disk star¨¡ho typu s ovlada‡em v MBR
+
+Jak ho nainstalovat:
+             - spustit program MBOOT.EXE
+             - ujistit se, zda je disk rozdˆlen na pat©i‡n˜ po‡et oblast¡
+               (pokud ne - stisknout N)
+             - na dotaz Nainstalovat ... odpovˆdˆt A
+             - na v˜zvu vlo‘it do disketov‚ jednotky A: disketu s alespo¤
+               20 kB voln‚ho m¡sta (pokud jde o opˆtovnou instalaci, lze
+               pou‘¡t tut‚‘ disketu) a potvrdit kl vesou Enter
+             - zadat pozn mku k z loze (nap©. Prvn¡ instalace apod.)
+             - zadat po‡et oblast¡, kter‚ lze aktivovat (mus¡ j¡t sekven‡nˆ
+               po sobˆ) nebo potvrdit nab¡zen˜ po‡et
+             - zadat popisy oblast¡ pro zobrazen¡ v menu (nap©. n zvy
+               syst‚m–)
+             - pokud startovac¡ menu odpov¡d  va¨im po‘adavk–m, stisknˆte A
+             - pokud pou‘¡v te software na cache disku, proveƒte jejich
+               vypr zdnˆn¡
+             - restartujte po‡¡ta‡
+             - v menu pomoc¡ kl ves Fx postupnˆ aktivujte v¨echny mo‘nosti a
+               nainstalujte syst‚my do jednotliv˜ch oblast¡ (aktivn¡ oblast
+               nese v‘dy ozna‡en¡ C:)
+
+Jak ho odinstalovat:
+             - na‡¡st z disku ‡i diskety nˆkterou verzi MS-DOSu
+             - vlo‘it disketu se z lohou
+             - p©epnout syst‚m na disketu (nap©. A:)
+             - spustit program MBUNDO.EXE
+             - zadat ‡¡slo z lohy (dle uveden˜ch pozn mek)
+             - potvrdit z pis star¨¡ verze MBR
+             - po skon‡en¡ programu po‡¡ta‡ restartovat
+
+Jak funguje startovac¡ menu:
+             - ‡ek  devˆt vte©in na stisk kl vesy Fx (x je ‡¡slo aktivovan‚
+               oblasti)
+             - pokud vypr¨¡ ‡as, nebo je stisknuta jin  kl vesa, zavede se
+               syst‚m z naposled aktivn¡ oblasti (ozna‡eno ¨ipkou)

@@ -1,0 +1,35 @@
+Kompletn¡ nadstandardn¡ (program torsk ) distribuce multiboot menu
+------------------------------------------------------------------
+
+Proto‘e standardn¡ ovlada‡ na multiboot Ti pravdˆpodobnˆ nebude vyhovovat,
+dal jsem Ti sem zdrojov‚ texty prakticky cel‚ho "bal¡ku". Vlastn¡
+ovlada‡ je v souboru BOOT.ASS. Pokud jej bude¨ mˆnit, nezapome¤, ‘e
+nesm¡ m¡t (v‡etnˆ text– menu) v¡c ne‘ $1BE bajt–. Po zmˆnˆ je t©eba nˆkter‚
+programy znovu p©elo‘it - to by mˆl obstarat MKMBOOT.BAT (v nˆm je t©eba
+nastavit spr vnˆ cesty k p©eklada‡–m). Po p©ekladu vznikne program MBOOT.EXE,
+kter˜ obsahuje v¨echny pot©ebn‚ struktury - nevy‘aduje ‘ dn˜ dal¨¡ soubor
+z t‚to distribuce.
+        Doporu‡uji pozorn‚ p©e‡ten¡ dokumentace - nˆkter‚ vˆci se sice
+mo‘n  zdaj¡ samoz©ejm‚, ale ...
+
+Z vˆre‡n  ustanoven¡:
+        Distribuce programu MBOOT je freeware - tj. za vyu‘¡v n¡ program– v
+n¡ obsa‘en˜ch nevy‘aduje autor ‘ dn˜ poplatek, za p©edpokladu ‘e nebude ‘ dn 
+‡ st pozmˆnˆna ‡i odstranˆna (vyj¡mky viz v˜¨e), av¨ak z rove¤ autor neru‡¡
+za ¨kody zp–soben‚ aplikac¡ programu.
+
+Autor:                ARNAY Software  ( ) 1997
+
+Programy obsa‘en‚ v distribuci:
+BIN2LNK  - pomocn˜ program pro p©eklad
+BOOT     - meziprodukt p©i p©ekladu ovlada‡e (nikdy nespou¨tˆt)
+CLUST    - vypo‡te minim ln¡ velikost clusteru pro danou velikost oblasti
+MBOOT    - v˜sledn˜ produkt - instal tor ovlada‡e (obsahuje BOOT a MBUNDO)
+MBUNDO   - meziprodukt p©i vytv ©en¡ MBOOT (modul umo‘¤uj¡c¡ vratnost zmˆn)
+MKINH    - pomocn˜ program pro p©eklad
+MKMBOOT  - d vka obsahuj¡c¡ sekvenci p©¡kaz– pro znovuvytvo©en¡ MBOOTu
+
+Pou‘it‚ programy jin˜ch autor–:
+TASM, TLINK, BINOBJ, TPC       - Borland International
+EXE2BIN                        - Microsoft Corp.
+

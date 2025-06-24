@@ -1,0 +1,9 @@
+type
+ TPartBackup=record
+              Ver:Byte;
+              Desc:String[60];
+              Time:LongInt;
+              Drive:Byte;
+              Head,Track,Sector:Byte;
+              Buff:TPartitionTable;
+             end;

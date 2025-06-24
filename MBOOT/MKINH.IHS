@@ -1,0 +1,6 @@
+ Syntaxe MKINH < source.IHS > dest.INH 
+
+ Program konvertuje textovy soubor s napovedou do souboru typu INCLUDE
+ pro TP. Napovedu pripojite vlozenim textu {$I dest.INH} pred begin
+ hlavniho programu a radek HelpTxt:=@cHelpTxt; mezi prikazy Head:=...
+ a WriteHead(...);. Nutne pouziti jednotky Header.PAS !
